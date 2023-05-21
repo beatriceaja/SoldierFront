@@ -1,0 +1,36 @@
+// Initialize the battlefield parameters
+let distance = 10; // Number of steps they take towards each other
+let size = 100; // Initial size of the militaries
+let meltingRate = 10; // Rate at which their bodies melt
+let bottleOfWater = true; // Flag to indicate if the bottle of water is present
+
+// Function to animate the battlefield
+function animateBattlefield() {
+  // Loop until the distance becomes 0
+  while (distance > 0) {
+    // Print the current state of the battlefield
+    console.log(`Distance: ${distance} steps`);
+    console.log(`Size: ${size}`);
+    console.log(`Bottle of Water: ${bottleOfWater ? 'Available' : 'Empty'}`);
+    console.log('---');
+
+    // Update the distance, size, and melting rate
+    distance--;
+    size -= meltingRate;
+
+    // Check if the size reaches 0 or below
+    if (size <= 0) {
+      console.log('Militaries have reached the 10th step. Only the desert remains.');
+      break;
+    }
+
+    // Check if it's the 5th step and remove the bottle of water
+    if (distance === 5 && bottleOfWater) {
+      console.log('The bottle of water has been consumed.');
+      bottleOfWater = false;
+    }
+  }
+}
+
+// Start the animation
+animateBattlefield();
